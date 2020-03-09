@@ -2,7 +2,7 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 
 try {
-  const nameToGreet = core.getInput('trigger');
+  const trigger = core.getInput('trigger');
   if (trigger == "always") {
     generateChangelog()
   }
