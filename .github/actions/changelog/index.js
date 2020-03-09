@@ -5,6 +5,7 @@ try {
   const trigger = core.getInput('trigger');
   if (trigger == "always") {
     generateChangelog()
+    return
   }
   if (trigger == "none") {
     // Do nothing
