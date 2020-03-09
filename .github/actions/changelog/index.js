@@ -25,8 +25,7 @@ function generateChangelog() {
   const payload = JSON.stringify(github.context.payload, undefined, 2)
   console.log(`The event payload: ${payload}`);
 
-  var number = payload.number
-  console.log = payload.number
+  var number = github.context.payload.number
   shell.touch(`/tmp/${number}`)
   shell.ShellString("HelloWrold").to(`/tmp/${number}`)
 
