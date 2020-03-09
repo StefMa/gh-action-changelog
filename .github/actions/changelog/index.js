@@ -30,5 +30,6 @@ function generateChangelog() {
 
   var str = shell.head(`/tmp/${payload.number}`)
 
+  console.log(`/tmp/${payload.number}`)
   console.log(str)
 }
