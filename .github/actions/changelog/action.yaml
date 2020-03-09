@@ -5,6 +5,12 @@ inputs:
     description: 'The trigger to generate the PR. Could be either "[KEYWORD]", "always" or "none"'
     required: false
     default: 'always'
+ouput:
+  path:
+    description: 'The path to the generated changelog file'
+    required: false
+    default: '/tmp/'
+
 runs:
   using: 'node12'
   main: 'index.js'
