@@ -26,6 +26,7 @@ function generateChangelog() {
   console.log(`The event payload: ${payload}`);
 
   var number = payload.number
+  console.log = payload.number
   shell.touch(`/tmp/${number}`)
   shell.ShellString("HelloWrold").to(`/tmp/${number}`)
 
