@@ -1,7 +1,7 @@
 const core = require('@actions/core')
 const github = require('@actions/github')
 const shell = require('shelljs')
-const uuid = required('uuid')
+const uuid = require('uuid')
 
 try {
   const path = core.getInput('path')
