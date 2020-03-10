@@ -1,0 +1,20 @@
+name: 'Changelog generator'
+description: 'Generate a changelog for your PR'
+
+inputs:
+  path:
+    description: 'The changelog file pathes as an array'
+    required: false  
+  content:
+    description: 'The changelog content as an array'
+    required: false
+
+ouput:
+  path:
+    description: 'The path to the generated changelog file'
+  content:
+    description: 'The (string) content of the changelog'
+
+runs:
+  using: 'node12'
+  main: 'index.js'
