@@ -1,10 +1,9 @@
-const core = require('@actions/core');
-const github = require('@actions/github');
-const shell = require('shelljs');
+const core = require('@actions/core')
+const github = require('@actions/github')
+const shell = require('shelljs')
 
 try {
-  const trigger = core.getInput('trigger');
-  const dir = core.getInput('changelogDir');
+  const trigger = core.getInput('trigger')
   if (trigger == "always") {
     generateChangelog()
     return
@@ -23,16 +22,17 @@ function generateChangelog() {
   console.log("Generate changelog")
 
   const payload = JSON.stringify(github.context.payload, undefined, 2)
-  console.log(`The event payload: ${payload}`);
+  console.log(`The event payload: ${payload}`)
 
   var changelogString = createChangelogString()
   var filePath = `/tmp/${github.context.payload.number}`
   shell.touch(filePath)
   shell.ShellString(changelogString).to(filePath)
 
-  var stringInFile = shell.head(filePath)
+  core.setOutput("path", filePath)
+  core.setOutput("content", changelogString)
   console.log(filePath)
-  console.log(stringInFile)
+  console.log(stringIchangelogStringnFile)
 }
 
 function createChangelogString() {

@@ -1,15 +1,17 @@
 name: 'Changelog generator'
 description: 'Generate a changelog for your PR'
+
 inputs:
   trigger:
     description: 'The trigger to generate the PR. Could be either "[KEYWORD]", "always" or "none"'
     required: false
     default: 'always'
+
 ouput:
   path:
     description: 'The path to the generated changelog file'
-    required: false
-    default: '/tmp/'
+  content:
+    description: 'The (string) content of the changelog'
 
 runs:
   using: 'node12'
