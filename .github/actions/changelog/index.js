@@ -8,7 +8,7 @@ try {
     generateChangelog()
     return
   }
-  if (trigger == "none") {
+  if (trigger == "never") {
     console.log("Skipped")
     return
   }

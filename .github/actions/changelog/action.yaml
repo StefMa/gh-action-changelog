@@ -3,7 +3,7 @@ description: 'Generate a changelog for your PR'
 
 inputs:
   trigger:
-    description: 'The trigger to generate the PR. Could be either "[KEYWORD]", "always" or "none"'
+    description: 'The trigger to generate the PR. Could be either "[KEYWORD]", "always" or "never"'
     required: false
     default: 'always'
 
