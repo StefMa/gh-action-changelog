@@ -25,8 +25,7 @@ function generateChangelog() {
   console.log(`The event payload: ${payload}`)
 
   var changelogString = createChangelogString()
-  var filePath = `/tmp/${github.context.payload.number}`
-  shell.touch(filePath)
+  var filePath = `/tmp/gh_action_changelog/${github.context.payload.number}`
   shell.ShellString(changelogString).to(filePath)
 
   core.setOutput("path", filePath)
