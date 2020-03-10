@@ -16,7 +16,7 @@ try {
     generateChangelog()
     return
   } else {
-    console.log(`Skipped - trigger word ${trigger} not found in PR description`)
+    console.log(`Skipped - trigger word '${trigger}' not found in PR description`)
   }
 } catch (error) {
   core.setFailed(error.message);
@@ -41,8 +41,8 @@ function generateChangelog() {
 
   core.setOutput("path", filePath)
   core.setOutput("content", changelogString)
-  console.log(`Path to the changelog file: ${filePath}`)
-  console.log(`The changelog string: ${changelogString}`)
+  console.log(`Path to the changelog file: '${filePath}'`)
+  console.log(`The changelog string: '${changelogString}'`)
 }
 
 function createChangelogString() {
