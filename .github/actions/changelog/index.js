@@ -9,13 +9,21 @@ try {
     return
   }
   if (trigger == "none") {
-    // Do nothing
     console.log("Skipped")
     return
   }
-  generateChangelog()
+  if (prDescriptionHasTrigger(trigger)) {
+    generateChangelog()
+    return
+  } else {
+    console.log(`Skipped - trigger word ${trigger} not found in PR description`)
+  }
 } catch (error) {
   core.setFailed(error.message);
+}
+
+function prDescriptionHasTrigger(triggerWord) {
+  return github.context.payload.pull_request.body.includes(triggerWord)
 }
 
 function generateChangelog() {
