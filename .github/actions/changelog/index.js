@@ -25,12 +25,20 @@ function generateChangelog() {
   const payload = JSON.stringify(github.context.payload, undefined, 2)
   console.log(`The event payload: ${payload}`);
 
-  var number = github.context.payload.number
-  shell.touch(`/tmp/${number}`)
-  shell.ShellString("HelloWrold").to(`/tmp/${number}`)
+  var changelogString = createChangelogString()
+  var filePath = `/tmp/${github.context.payload.number}`
+  shell.touch(filePath)
+  shell.ShellString(changelogString).to(filePath)
 
-  var str = shell.head(`/tmp/${number}`)
+  var stringInFile = shell.head(filePath)
+  console.log(filePath)
+  console.log(stringInFile)
+}
 
-  console.log(`/tmp/${number}`)
-  console.log(str)
+function createChangelogString() {
+  var prNumber = github.context.payload.number
+  var prUrl = github.context.payload.html_url
+  var prTitle = github.context.payload.title
+  var prAuthor = process.env.GITHUB_ACTOR
+  return `* [#${prNumber}](${prUrl}): ${prTitle} - [@${prAuthor}](https://github.com/${prAuthor})`
 }
