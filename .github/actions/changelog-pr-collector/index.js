@@ -5,15 +5,11 @@ const uuid = require('uuidv4')
 
 try {
   const path = core.getInput('path')
-  console.log(`Path: ${path}`)
 
   var pathes = path.split('\n')
-  console.log(pathes)
 
   var pathesContent = getConentFromPathes(pathes)
-  console.log(pathesContent)
   var pathChangelog = createChangelog(pathesContent)
-  console.log(pathChangelog)
 
   var dirPath = `/tmp/gh_action_changelog/${uuid.uuid()}`
   var filePath = `${dirPath}/changelog`
@@ -28,7 +24,6 @@ try {
 
 function getConentFromPathes(pathes) {
   return pathes.map(path => {
-    console.log(path)
     return shell.head(path).toString()
   })
 }
