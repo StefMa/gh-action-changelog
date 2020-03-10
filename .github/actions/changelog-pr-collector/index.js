@@ -10,9 +10,9 @@ try {
   var pathes = path.split('\n')
 
   var pathesContent = getConentFromPathes(pathes)
-  consoloe.log(pathesContent)
+  console.log(pathesContent)
   var pathChangelog = createChangelog(pathesContent)
-  consoloe.log(pathChangelog)
+  console.log(pathChangelog)
 
   var dirPath = `/tmp/gh_action_changelog/${uuid.uuid()}`
   var filePath = `${dirPath}/changelog`
