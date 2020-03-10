@@ -1,0 +1,15 @@
+on:
+  pull_request:
+    types: [opened, reopened]
+
+jobs:
+  runChangelog:
+    name: My first job
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/changelog
+        id: generateChangelog
+      - run: |
+          echo "Changelog path is {{ steps.generateChangelog.outputs.path }}"
+          echo "Changelog content is {{ steps.generateChangelog.outputs.content }}"        
