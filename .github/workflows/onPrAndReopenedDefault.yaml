@@ -8,8 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/actions/changelog
+      - uses: ./.github/actions/changelog-pr-generator
         id: generateChangelog
       - run: |
           echo "Changelog path is ${{ steps.generateChangelog.outputs.path }}"
-          echo "Changelog content is ${{ steps.generateChangelog.outputs.content }}"        
+          echo "Changelog content is ${{ steps.generateChangelog.outputs.content }}"
