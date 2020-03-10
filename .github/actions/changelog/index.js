@@ -21,11 +21,11 @@ try {
 function generateChangelog() {
   console.log("Generate changelog")
 
-  const payload = JSON.stringify(github.context.payload, undefined, 2)
-  console.log(`The event payload: ${payload}`)
+  // const payloadString = JSON.stringify(github.context.payload, undefined, 2)
+  // console.log(`The event payload: ${payloadString}`) Just for debugging
 
   var changelogString = createChangelogString()
-  var filePath = `/tmp/gh_action_changelog/${github.context.payload.number}`
+  var filePath = `/tmp/gh_action_changelog/${github.context.payload.pull_request.number}`
   shell.ShellString(changelogString).to(filePath)
 
   core.setOutput("path", filePath)
