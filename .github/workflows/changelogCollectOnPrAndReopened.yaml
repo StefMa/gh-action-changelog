@@ -12,7 +12,7 @@ jobs:
         id: generateChangelog
         with:
           trigger: 'always'
-      - uses: ./.github/actions/changelog/changelog-pr-collector
-          with:
-            path: ${{ steps.generateChangelog.outputs.path }}"
-            content: ${{ steps.generateChangelog.outputs.content }}"
+      - uses: ./.github/actions/changelog-pr-collector
+        with:
+          path: ${{ steps.generateChangelog.outputs.path }}"
+          content: ${{ steps.generateChangelog.outputs.content }}"
