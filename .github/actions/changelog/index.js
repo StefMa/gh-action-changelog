@@ -32,7 +32,7 @@ function generateChangelog() {
   core.setOutput("path", filePath)
   core.setOutput("content", changelogString)
   console.log(filePath)
-  console.log(stringIchangelogStringnFile)
+  console.log(changelogString)
 }
 
 function createChangelogString() {
