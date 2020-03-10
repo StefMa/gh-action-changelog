@@ -33,8 +33,8 @@ function generateChangelog() {
 
   core.setOutput("path", filePath)
   core.setOutput("content", changelogString)
-  console.log(filePath)
-  console.log(changelogString)
+  console.log(`Path to the changelog file: ${filePath}`)
+  console.log(`The changelog string: ${changelogString}`)
 }
 
 function createChangelogString() {
