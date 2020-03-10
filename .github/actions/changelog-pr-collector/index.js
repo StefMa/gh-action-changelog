@@ -1,7 +1,7 @@
 const core = require('@actions/core')
 const github = require('@actions/github')
 const shell = require('shelljs')
-import { v4 as uuidv4 } from 'uuid';
+const uuid = required('uuid')
 
 try {
   const path = core.getInput('path')
@@ -12,7 +12,7 @@ try {
   var pathesContent = getConentFromPathes(pathes)
   var pathChangelog = createChangelog(pathContent)
 
-  var dirPath = `/tmp/gh_action_changelog/${uuidv4()}`
+  var dirPath = `/tmp/gh_action_changelog/${uuid.uuidv4()}`
   var filePath = `${dirPath}/changelog`
   shell.mkdir('-p', dirPath)
   shell.ShellString(pathChangelog).to(filePath)
