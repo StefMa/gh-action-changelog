@@ -13,10 +13,11 @@ jobs:
         with:
           trigger: 'always'
       - uses: ./.github/actions/changelog-pr-collector
+        id: collectChangelog
         with:
           path: |
-            ${{ steps.generateChangelog.outputs.path }}"
-            ${{ steps.generateChangelog.outputs.path }}"
-          content: |
-            ${{ steps.generateChangelog.outputs.content }}"
-            ${{ steps.generateChangelog.outputs.content }}"
+            ${{ steps.generateChangelog.outputs.path }}
+            ${{ steps.generateChangelog.outputs.path }}
+      - run: |
+          echo "Collected Changelog path is ${{ steps.collectChangelog.outputs.path }}"
+          echo "Collected Changelog content is ${{ steps.collectChangelog.outputs.content }}"
