@@ -36,9 +36,9 @@ function generateChangelog() {
 }
 
 function createChangelogString() {
-  var prNumber = github.context.payload.number
-  var prUrl = github.context.payload.html_url
-  var prTitle = github.context.payload.title
+  var prNumber = github.context.payload.pull_request.number
+  var prUrl = github.context.payload.pull_request.html_url
+  var prTitle = github.context.payload.pull_request.title
   var prAuthor = process.env.GITHUB_ACTOR
   return `* [#${prNumber}](${prUrl}): ${prTitle} - [@${prAuthor}](https://github.com/${prAuthor})`
 }
