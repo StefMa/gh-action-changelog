@@ -29,7 +29,7 @@ try {
 function getConentFromPathes(pathes) {
   return pathes.map(path => {
     console.log(path)
-    shell.head(path)
+    return shell.head(path).toString()
   })
 }
 
