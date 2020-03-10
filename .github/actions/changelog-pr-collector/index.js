@@ -8,6 +8,7 @@ try {
   console.log(`Path: ${path}`)
 
   var pathes = path.split('\n')
+  console.log(pathes)
 
   var pathesContent = getConentFromPathes(pathes)
   console.log(pathesContent)
@@ -27,6 +28,7 @@ try {
 
 function getConentFromPathes(pathes) {
   return pathes.map(path => {
+    console.log(path)
     shell.head(path)
   })
 }
