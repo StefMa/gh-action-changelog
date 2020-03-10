@@ -13,5 +13,5 @@ jobs:
         with:
           trigger: 'always'
       - run: |
-          echo "Changelog path is ${{ steps.generateChangelog.outputs.path }}"
-          echo "Changelog content is ${{ steps.generateChangelog.outputs.content }}"
+          echo "Changelog path is:\n${{ steps.generateChangelog.outputs.path }}"
+          echo "Changelog content is:\n${{ steps.generateChangelog.outputs.content }}"
