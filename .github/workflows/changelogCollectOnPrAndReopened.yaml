@@ -14,7 +14,9 @@ jobs:
           trigger: 'always'
       - uses: ./.github/actions/changelog-pr-collector
         with:
-          path:
-            - ${{ steps.generateChangelog.outputs.path }}"
-            - ${{ steps.generateChangelog.outputs.path }}"
-          content: ${{ steps.generateChangelog.outputs.content }}"
+          path: |
+            ${{ steps.generateChangelog.outputs.path }}"
+            ${{ steps.generateChangelog.outputs.path }}"
+          content: |
+            ${{ steps.generateChangelog.outputs.content }}"
+            ${{ steps.generateChangelog.outputs.content }}"
